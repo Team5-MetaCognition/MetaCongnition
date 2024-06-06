@@ -6,26 +6,27 @@ class MetacognitionTestApp:
  # 메인 윈도우 설정
         self.root = root
         self.root.title("메타인지 테스트")
+        self.root.geometry("1280x1024+100+100")
  # "메타인지 테스트" 타이틀 라벨
-        self.title_label = tk.Label(root, text="메타인지 테스트", font=("Helvetica", 20))
-        self.title_label.pack(pady=20)
+        self.title_label = tk.Label(root, text="메타인지 테스트", font=("Helvetica", 48))
+        self.title_label.pack(pady=40)
         self.title_label = tk.Label(root, text="메타인지는 자신의 인지 과정에 대한 인지,\n"
                                     "즉 자신의 사고나 학습 과정을 이해하고\n"
-                                    "통제하는 능력을 의미합니다.", font=("Helvetica", 11))
+                                    "통제하는 능력을 의미합니다.", font=("Helvetica", 24))    
 # "테스트 시작" 버튼
         self.title_label.pack(pady=20)        
-        self.start_button = tk.Button(root, text="테스트 시작", command=self.start_test)
-        self.start_button.place(x=50, y=180)
+        self.start_button = tk.Button(root, text="테스트 시작", font=("Helvetica", 24),command=self.start_test)
+        self.start_button.place(x=300, y=500)
 
 # "테스트 방법" 버튼
-        self.method_button = tk.Button(root, text="테스트 방법", command=self.show_method)
-        self.method_button.place(x=200, y=180)
+        self.method_button = tk.Button(root, text="테스트 방법", font=("Helvetica", 24),command=self.show_method)
+        self.method_button.place(x=700, y=500)
 
 # "테스트 시작" 버튼 클릭 시 호출
     def start_test(self):
-        messagebox.showinfo("테스트 시작", "")
+        messagebox.showinfo("테스트 시작", "") #사용자정보입력 페이지로 넘어가기
 
-# "테스트 방법" 버튼 클릭 시 호출
+# "테스트 방법" 버튼 클릭 시 호출 (테스트방법 페이지로 넘어가기)
     def show_method(self):
         messagebox.showinfo("테스트 방법", "1. 화면에 나오는 20개의 단어를 1분간 외운다.\n"
         "2. 외운단어를 맞추기 전 몇개를 맞출 수 있을지 개수를 적는다.\n"
