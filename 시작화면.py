@@ -15,11 +15,11 @@ class MetacognitionTestApp:
 # "테스트 시작" 버튼
         self.title_label.pack(pady=20)        
         self.start_button = tk.Button(root, text="테스트 시작", command=self.start_test)
-        self.start_button.pack(pady=10)
+        self.start_button.place(x=50, y=180)
 
 # "테스트 방법" 버튼
         self.method_button = tk.Button(root, text="테스트 방법", command=self.show_method)
-        self.method_button.pack(pady=10)
+        self.method_button.place(x=200, y=180)
 
 # "테스트 시작" 버튼 클릭 시 호출
     def start_test(self):
@@ -32,10 +32,11 @@ class MetacognitionTestApp:
         "3. 외운단어를 2분간 적는다.\n"
         "4. 테스트 전에 몇 개를 맞출지 예상한 개수와 실제 외운 단어 개수를 비교한다.\n")
 
+# 블록은 현재 스크립트가 직접 실행될 때만 코드가 실행됩니다.
 if __name__ == "__main__":
-# 메인 윈도우 생성
+# 메인 윈도우 생성(tk.Tk()를 사용하여 메인 윈도우를 생성합니다.)
     root = tk.Tk()
-# 애플리케이션 인스턴스 생성
+# 애플리케이션 인스턴스 생성(MetacognitionTestApp 클래스의 인스턴스를 생성하여 GUI 애플리케이션을 시작합니다.)
     app = MetacognitionTestApp(root)
-# 메인 이벤트 루프 시작
+# 메인 이벤트 루프 시작(root.mainloop()를 호출하여 메인 이벤트 루프를 시작하고, 프로그램이 종료될 때까지 윈도우가 열려 있도록 합니다.)
     root.mainloop()
