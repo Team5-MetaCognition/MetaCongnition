@@ -10,27 +10,21 @@ class App:
         
         # Label 및 Entry 위젯 추가
         self.label_name = Label(window, text="이름:")
-        self.label_name.grid(row=0, column=0, padx=10, pady=5, sticky=W)
         self.entry_name = Entry(window)
-        self.entry_name.grid(row=0, column=1, padx=10, pady=5)
+        # 위치 지정해줘야 함
 
         self.label_gender = Label(window, text="성별:")
-        self.label_gender.grid(row=1, column=0, padx=10, pady=5, sticky=W)
 
         self.gender_var = StringVar(window)  # 라디오 버튼 값을 저장할 변수
         self.gender_var.set("남성")  # 초기값 설정
 
         # 라디오 버튼 추가
         self.radio_male = Radiobutton(window, text="남성", variable=self.gender_var, value="남성")
-        self.radio_male.grid(row=1, column=1, padx=10, pady=5, sticky=W)
 
         self.radio_female = Radiobutton(window, text="여성", variable=self.gender_var, value="여성")
-        self.radio_female.grid(row=1, column=2, padx=10, pady=5, sticky=W)
 
         self.label_age = Label(window, text="나이:")
-        self.label_age.grid(row=2, column=0, padx=10, pady=5, sticky=W)
         self.entry_age = Entry(window)
-        self.entry_age.grid(row=2, column=1, padx=10, pady=5)
 
         # 다음 버튼 추가
         #self.next_button = Button(window, text="다음", command=self.save_to_csv)
