@@ -1,7 +1,17 @@
 import tkinter as tk
 from tkinter import filedialog
 from PIL import ImageGrab, Image, ImageTk
-from user_data import user
+
+# 사용자 정보
+class User:
+    def __init__(self, name, gender, age, score):
+        self.name = name
+        self.gender = gender
+        self.age = age
+        self.score = score
+
+# 샘플 사용자 데이터
+user = User(name="이예진", gender="여성", age=22, score=1)
 
 class ReportScreen:
     def __init__(self, user):
