@@ -4,7 +4,7 @@ class App:
     def __init__(self):
         window = Tk()
         window.title("메타인지 테스트_사용자 정보 입력")
-        window.geometry("1280x1024+100+100")
+        window.attributes('-fullscreen',True)
         
         self.label_title=Label(window,text="사용자 정보 입력", font=("나눔고딕", 35), relief=SOLID, padx=10)
         self.label_title.place(x=640,y=10)
