@@ -105,19 +105,6 @@ class ResultScreen:
         improvement_tips_label = tk.Label(self.window, text=improvement_tips_1st, font=("Arial", 14), justify=tk.LEFT)
         improvement_tips_label.place(x=120, y=620)
         
-        # 유튜브 썸네일 이미지 로드
-        youtube_thumbnail_url = "https://img.youtube.com/vi/ttiq82oSDpU/hqdefault.jpg"
-        response = requests.get(youtube_thumbnail_url)
-        youtube_thumbnail = Image.open(BytesIO(response.content))
-        youtube_thumbnail = youtube_thumbnail.resize((320, 180), Image.Resampling.LANCZOS)
-        youtube_thumbnail = ImageTk.PhotoImage(youtube_thumbnail)
-
-        # 썸네일을 표시하고 클릭 시 링크로 이동하도록 설정
-        self.thumbnail_label = tk.Label(self.window, image=youtube_thumbnail, cursor="hand2")
-        self.thumbnail_label.image = youtube_thumbnail
-        self.thumbnail_label.place(x=120, y=700)
-        self.thumbnail_label.bind("<Button-1>", lambda e: webbrowser.open_new("https://www.youtube.com/watch?v=ttiq82oSDpU"))
-        
     def exit(self):
         self.window.destroy()
 
