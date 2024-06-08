@@ -2,11 +2,8 @@ import tkinter as tk
 from tkinter import filedialog
 from PIL import ImageGrab, Image, ImageTk
 from user_data import user
-import webbrowser
-import requests
-from io import BytesIO
 
-class ResultScreen:
+class ReportScreen:
     def __init__(self, user):
         self.user = user
         self.window = tk.Tk()
@@ -82,17 +79,12 @@ class ResultScreen:
                 y_position += 30  # 다음 라벨의 y 위치 조정
 
     def save_as_image(self):
-        # 현재 화면의 스크린샷 찍기
-        x = self.window.winfo_rootx()
-        y = self.window.winfo_rooty()
-        width = x + self.window.winfo_width()
-        height = y + self.window.winfo_height()
-        image = ImageGrab.grab((x, y, width, height))
+        # 전체 화면을 캡처
+        image = ImageGrab.grab()
 
         # 이미지 저장 경로 선택
         file_path = filedialog.asksaveasfilename(defaultextension=".png", filetypes=[("PNG files", "*.png")])
         if file_path:
-            # 스크린샷을 PNG로 저장
             image.save(file_path, "PNG")
 
     def display_improvement_tips(self):
@@ -109,4 +101,4 @@ class ResultScreen:
         self.window.destroy()
 
 if __name__ == "__main__":
-    ResultScreen(user)
+    ReportScreen(user)
