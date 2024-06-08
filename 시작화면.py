@@ -9,18 +9,18 @@ class MetacognitionTestApp:
         self.root.geometry("1280x1024+100+100")
  # "메타인지 테스트" 타이틀 라벨
         self.title_label = tk.Label(root, text="메타인지 테스트", font=("Helvetica", 48))
-        self.title_label.pack(pady=40)
+        self.title_label.pack(pady=100)
         self.title_label = tk.Label(root, text="메타인지는 자신의 인지 과정에 대한 인지,\n"
                                     "즉 자신의 사고나 학습 과정을 이해하고\n"
                                     "통제하는 능력을 의미합니다.", font=("Helvetica", 24))    
 # "테스트 시작" 버튼
-        self.title_label.pack(pady=20)        
+        self.title_label.pack(pady=40)        
         self.start_button = tk.Button(root, text="테스트 시작", font=("Helvetica", 24),command=self.start_test)
-        self.start_button.place(x=300, y=500)
+        self.start_button.place(x=400, y=600)
 
 # "테스트 방법" 버튼
         self.method_button = tk.Button(root, text="테스트 방법", font=("Helvetica", 24),command=self.show_method)
-        self.method_button.place(x=700, y=500)
+        self.method_button.place(x=700, y=600)
 
 # "테스트 시작" 버튼 클릭 시 호출
     def start_test(self):

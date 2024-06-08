@@ -21,7 +21,7 @@ class MetacognitionTestApp:
 
         # 확인 버튼
         self.confirm_button = tk.Button(root, text="확인", command=self.confirm_input,height=3, width=10,font=("Helvetica", 24))
-        self.confirm_button.place(x=500, y=700)
+        self.confirm_button.place(x=550, y=700)
 
     def confirm_input(self):
         try:
