@@ -8,7 +8,7 @@ class UserInfo(BaseImage): ##BasePage(배경 이미지 설정 클래스) 상속
     def __init__(self, parent, controller):
         super().__init__(parent)
         self.controller = controller  # 컨트롤러는 주 창(App 클래스)
-        self.set_background("src/assets/user_info_background-2nd.png")
+        self.set_background("src/assets/user_info_background-3rd.png")
 
 
         # label = tk.Label(self, text="사용자 정보 입력")

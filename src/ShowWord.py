@@ -26,7 +26,7 @@ class ShowWord(BaseImage):
     def __init__(self, parent, controller):
         super().__init__(parent)
         self.controller = controller  # 컨트롤러는 주 창(App 클래스)
-        self.set_background("src/assets/main_background.png")
+        self.set_background("src/assets/main_background-3rd.png")
 
         self.word_label = tk.Label(self, text="20개의 단어를 하나씩 보여드리겠습니다.\n⏰한 단어당 2초\n\n화면에 출력되는 단어를 기억하자!", font=("나눔고딕", 48),bg="white")
         self.word_label.pack(expand=True) # 단어 글자수가 달라서 상대적 위치를 지정해주는 pack 사용
