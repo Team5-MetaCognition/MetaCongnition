@@ -2,20 +2,22 @@ import tkinter as tk
 from tkinter import PhotoImage
 from PIL import Image, ImageTk
 from tkinter import messagebox
+from BaseImage import BaseImage
 
-class StartPage(tk.Frame):  # tk.Frame을 상속하여 페이지 생성
+class StartPage(BaseImage):  # tk.Frame을 상속하여 페이지 생성
     def __init__(self, parent, controller):
         super().__init__(parent)
-
         self.controller = controller  # 컨트롤러는 주 창(App 클래스)
+        self.set_background("src/assets/start.png")
 
-        image = Image.open("src/assets/start.png")
-        image = image.resize((self.winfo_screenwidth(), self.winfo_screenheight()))
-        photo = ImageTk.PhotoImage(image)
 
-        self.background_label = tk.Label(self, image=photo)
-        self.background_label.image = photo  # PhotoImage가 가비지 컬렉션에 의해 제거되지 않도록 유지
-        self.background_label.place(relwidth=1, relheight=1)  # 프레임 전체에 이미지 채우기
+        # image = Image.open("src/assets/start.png")
+        # image = image.resize((self.winfo_screenwidth(), self.winfo_screenheight()))
+        # photo = ImageTk.PhotoImage(image)
+
+        # self.background_label = tk.Label(self, image=photo)
+        # self.background_label.image = photo  # PhotoImage가 가비지 컬렉션에 의해 제거되지 않도록 유지
+        # self.background_label.place(relwidth=1, relheight=1)  # 프레임 전체에 이미지 채우기
 
         self.grid_rowconfigure(0, weight=1)
         self.grid_rowconfigure(1, weight=1)

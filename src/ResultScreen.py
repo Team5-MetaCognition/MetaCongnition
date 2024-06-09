@@ -1,18 +1,21 @@
 import tkinter as tk
+from BaseImage import BaseImage
 
-class ResultScreen(tk.Frame):
+class ResultScreen(BaseImage):
     def __init__(self, parent, controller):
         super().__init__(parent)
         self.controller = controller
+        self.set_background("src/assets/main_background-3rd.png")
 
         self.show_results()
 
     def show_results(self):
         # 기존 위젯 제거
         for widget in self.winfo_children():
-            widget.destroy()
+            if widget is not self.background_label: #배경화면이 아닌 위젯만 제거
+                widget.destroy()
             
-        result_frame = tk.Frame(self)
+        result_frame = tk.Frame(self, bg='white')
         result_frame.pack(expand=True)
 
         words_to_display = self.controller.user.random_words #랜덤으로 나온 20개 단어 호출
@@ -30,8 +33,8 @@ class ResultScreen(tk.Frame):
             else:
                 display_text = f"{word} X" #사용하자 맞추지 못한 단어 옆에는 X 표시
                 word_color="red" # 맞추지 못한 단어는 빨간색
-            word_label = tk.Label(result_frame, text=display_text, font=("나눔고딕", 30, "bold"), fg=word_color)
-            word_label.grid(row=i//5, column=i%5, padx=20, pady=20)
+            word_label = tk.Label(result_frame, text=display_text, font=("나눔고딕", 30, "bold"), fg=word_color, bg='white')
+            word_label.grid(row=i//5, column=i%5, padx=8, pady=20)
 
         self.controller.user.set_matching_word_count(count)
         self.show_report_button = tk.Button(self, text="자세한 결과보기", command=self.show_report,height=3, width=20,font=("나눔고딕", 14))

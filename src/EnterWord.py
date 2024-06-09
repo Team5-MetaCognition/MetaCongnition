@@ -1,13 +1,16 @@
 import tkinter as tk
 from ResultScreen import ResultScreen
 # from Timer import Timer
+from BaseImage import BaseImage
 
-class EnterWord(tk.Frame):
+class EnterWord(BaseImage):
     second=120
 
     def __init__(self, parent, controller):
         super().__init__(parent)
         self.controller = controller
+        self.set_background("src/assets/main_background-3rd.png")
+
     
         self.timer_label = tk.Label(self, text="120초 (남은 시간)")
         self.timer_label.pack(expand=True)
@@ -29,7 +32,7 @@ class EnterWord(tk.Frame):
             self.after(1000, self.add_second)
         else:
             self.destroy()
-            self.controller.switch_frame("ResultScreen")
+            self.controller.switch_frame("TestComplete")
 
     def start_timer(self):
         self.add_second()
@@ -41,4 +44,4 @@ class EnterWord(tk.Frame):
 
     def confirm_btn(self):
         self.destroy()
-        self.controller.switch_frame("ResultScreen")
+        self.controller.switch_frame("TestComplete")
