@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
+from EnterWord import EnterWord
+from ReportScreen import ReportScreen
 
 class EstimatedNumber(tk.Frame):
     def __init__(self, parent, controller):
@@ -26,9 +28,9 @@ class EstimatedNumber(tk.Frame):
         try:
             # 예상 개수를 가져와 정수로 변환
             estimated_number = int(self.entry.get())
-            self.controller.user.setExpectedScore(estimated_number)
-            # 메시지 박스를 통해 확인
-            messagebox.showinfo("알림","") #외운단어페이지로 넘어가게
+            self.controller.user.setEstimatedNumber(estimated_number)
+            self.controller.switch_frame("EnterWord")
+            
         except ValueError:
             # 숫자가 아닌 값이 입력된 경우 오류 메시지 표시
             messagebox.showerror("오류", "유효한 숫자를 입력하세요.")
