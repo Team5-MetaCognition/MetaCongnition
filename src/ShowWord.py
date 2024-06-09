@@ -1,5 +1,6 @@
 import tkinter as tk
 import random
+from EstimatedNumber import EstimatedNumber
 
 # 단어 리스트 100개 일상에서 접하는 단어?
 words_list = [
@@ -42,6 +43,9 @@ class ShowWord(tk.Frame):
             self.after(100, self.show_word) #빠르게 TEST
             #self.window.after(2000, self.show_word)  # 2초 후에 show_word 함수를 다시 호출
         else:
-            self.word_label.config(text="끝!")
-            self.button_next = tk.Button(self, text="NEXT", font=("나눔고딕", 30)) #다음페이지(예상개수입력)로 넘어가는 커맨드추가하면 됨.
+            self.word_label.config(text=self.controller.user.name)
+            self.button_next = tk.Button(self, text="NEXT", font=("나눔고딕", 30), command=self.nextButton) #다음페이지(예상개수입력)로 넘어가는 커맨드추가하면 됨.
             self.button_next.pack(expand=True)
+
+    def nextButton(self):
+        self.controller.swtich_frame("EstimatedNumber")
