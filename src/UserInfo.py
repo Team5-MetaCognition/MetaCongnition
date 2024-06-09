@@ -57,4 +57,4 @@ class UserInfo(tk.Frame):
             self.warning_label.config(text="⚠️나이를 숫자로 입력해주세요.")
         else:
             self.controller.user.setInfo(name, gender, age)
-            self.controller.swtich_frame("ShowWord")
+            self.controller.switch_frame("ShowWord")

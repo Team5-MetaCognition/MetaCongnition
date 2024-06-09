@@ -33,7 +33,7 @@ class StartPage(tk.Frame):  # tk.Frame을 상속하여 페이지 생성
         self.method_button.grid(row=3, column=1, padx=(10, 20), sticky="e")
 
     def startTest(self):
-        self.controller.swtich_frame("UserInfo")
+        self.controller.switch_frame("UserInfo")
 
     def goToHowToPage(self):
-        self.controller.swtich_frame("HowToPage")
+        self.controller.switch_frame("HowToPage")
