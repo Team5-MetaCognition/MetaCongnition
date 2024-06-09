@@ -7,6 +7,7 @@ from HowToPage import HowToPage
 from ShowWord import ShowWord
 from EstimatedNumber import EstimatedNumber
 from ReportScreen import ReportScreen
+from ResultScreen import ResultScreen
 from EnterWord import EnterWord
 from User import User
 
@@ -30,7 +31,7 @@ class MetacognitionTestApp(tk.Tk):
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
 
-        for Frame in (StartPage, HowToPage, UserInfo, ShowWord, EstimatedNumber, EnterWord, ReportScreen):  # 여러 페이지(Frame)를 초기화
+        for Frame in (StartPage, HowToPage, UserInfo, ShowWord, EstimatedNumber, EnterWord, ResultScreen ,ReportScreen):  # 여러 페이지(Frame)를 초기화
             page_name = Frame.__name__
             frame = Frame(parent=container, controller=self)  # 각 Frame에 부모와 컨트롤러 전달
             self.frames[page_name] = frame  # 딕셔너리에 Frame 저장
@@ -40,6 +41,8 @@ class MetacognitionTestApp(tk.Tk):
     
     def switch_frame(self, page_name):
         frame = self.frames[page_name]  # 전달된 페이지 이름에 해당하는 Frame을 가져옴
+        if hasattr(frame, 'show_results'):
+            frame.show_results() # 프레임 전환 시 show_results 호출
         frame.tkraise()  # 해당 Frame을 화면에 표시
 
         if page_name == "EnterWord":
