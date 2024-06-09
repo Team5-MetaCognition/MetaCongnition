@@ -103,8 +103,8 @@ class ReportScreen(tk.Frame):
 
         categories = ['입력 개수', '맞춘 개수', '예상 개수', '총 단어 개수']
         print(self.controller.user.matching_word_counts)
-        print(self.controller.user.estimatedNumber)
-        values = [len(self.controller.user.inputWords), self.controller.user.matching_word_counts, self.controller.user.estimatedNumber, 20]  # 예시 값
+        print(self.controller.user.estimated_number)
+        values = [len(self.controller.user.input_words), self.controller.user.matching_word_counts, self.controller.user.estimated_number, 20]  # 예시 값
 
         y = np.arange(len(categories))
 

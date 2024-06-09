@@ -22,17 +22,17 @@ class EnterWord(tk.Frame):
         self.confirm_button = tk.Button(self, text="완료", command=self.confirm_btn,height=3, width=10,font=("Helvetica", 24))
         self.confirm_button.pack(expand=True)
 
-    def addSecond(self):
+    def add_second(self):
         if self.second > 0:
             self.timer_label.config(text=f"{self.second}초 (남은 시간)")
             self.second -= 1
-            self.after(1000, self.addSecond)
+            self.after(1000, self.add_second)
         else:
             self.destroy()
             self.controller.switch_frame("ResultScreen")
 
     def start_timer(self):
-        self.addSecond()
+        self.add_second()
         
     def on_enter(self, event):
         word = self.entry.get()

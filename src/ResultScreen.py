@@ -16,7 +16,7 @@ class ResultScreen(tk.Frame):
         result_frame.pack(expand=True)
 
         words_to_display = self.controller.user.random_words #랜덤으로 나온 20개 단어 호출
-        user_input_words = self.controller.user.inputWords #사용자에게 입력 받은 단어 저장
+        user_input_words = self.controller.user.input_words #사용자에게 입력 받은 단어 저장
         
         print("user_input_words:", user_input_words)
         count=0

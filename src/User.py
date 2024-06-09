@@ -1,7 +1,7 @@
 # 사용자 정보
 class User:
-    inputWords = []
-    estimatedNumber = 0
+    input_words = []
+    estimated_number = 0
     random_words = []
     matching_word_counts=0
 
@@ -16,11 +16,11 @@ class User:
         self.gender = gender
         self.age = age
     
-    def setEstimatedNumber(self, score):
-        self.estimatedNumber = score
+    def set_estimated_number(self, score):
+        self.estimated_number = score
 
     def inputWord(self, word):
-        self.inputWords.append(word)
+        self.input_words.append(word)
         
     def set_random_words(self, words):
         self.random_words = words
