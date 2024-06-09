@@ -1,5 +1,6 @@
 import tkinter as tk
 import random
+from BaseImage import BaseImage
 
 # 단어 리스트 100개 일상에서 접하는 단어?
 words_list = [
@@ -21,12 +22,13 @@ words_list = [
 # 단어 리스트에서 20개의 단어를 무작위로 선택
 random_words = random.sample(words_list, 20)
 
-class ShowWord(tk.Frame):
+class ShowWord(BaseImage):
     def __init__(self, parent, controller):
         super().__init__(parent)
-        self.controller = controller
+        self.controller = controller  # 컨트롤러는 주 창(App 클래스)
+        self.set_background("src/assets/main_background.png")
 
-        self.word_label = tk.Label(self, text="20개의 단어를 하나씩 보여드리겠습니다.\n⏰한 단어당 2초\n\n화면에 출력되는 단어를 기억하자!", font=("나눔고딕", 48))
+        self.word_label = tk.Label(self, text="20개의 단어를 하나씩 보여드리겠습니다.\n⏰한 단어당 2초\n\n화면에 출력되는 단어를 기억하자!", font=("나눔고딕", 48),bg="white")
         self.word_label.pack(expand=True) # 단어 글자수가 달라서 상대적 위치를 지정해주는 pack 사용
 
         self.button_start= tk.Button(self,text="START",font=("나눔고딕", 30),command=self.show_word)
@@ -37,7 +39,7 @@ class ShowWord(tk.Frame):
     def show_word(self):
         self.button_start.pack_forget()  # 시작 버튼 숨기기
         if self.index < 20:
-            self.word_label.config(text=random_words[self.index])
+            self.word_label.config(text=random_words[self.index], bg="white")
             self.index += 1
             self.after(100, self.show_word) #빠르게 TEST
             #self.window.after(2000, self.show_word)  # 2초 후에 show_word 함수를 다시 호출
