@@ -28,6 +28,7 @@ class EnterWord(tk.Frame):
             self.second -= 1
             self.after(1000, self.addSecond)
         else:
+            self.destroy()
             self.controller.switch_frame("ResultScreen")
 
     def start_timer(self):
@@ -39,4 +40,5 @@ class EnterWord(tk.Frame):
         self.entry.delete(0, tk.END)
 
     def confirm_btn(self):
+        self.destroy()
         self.controller.switch_frame("ResultScreen")

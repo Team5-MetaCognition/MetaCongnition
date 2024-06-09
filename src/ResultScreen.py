@@ -33,6 +33,7 @@ class ResultScreen(tk.Frame):
             word_label = tk.Label(result_frame, text=display_text, font=("나눔고딕", 30, "bold"), fg=word_color)
             word_label.grid(row=i//5, column=i%5, padx=20, pady=20)
 
+        self.controller.user.set_matching_word_count(count)
         self.show_report_button = tk.Button(self, text="자세한 결과보기", command=self.show_report,height=3, width=20,font=("나눔고딕", 14))
         self.show_report_button.pack(pady=10)    
         
