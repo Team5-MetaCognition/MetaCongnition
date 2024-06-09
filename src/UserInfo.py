@@ -1,7 +1,12 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 from ShowWord import ShowWord
+<<<<<<< HEAD
+from User import User
 from BaseImage import BaseImage
+=======
+from User import User
+>>>>>>> main
 
 
 class UserInfo(BaseImage): ##BasePage(배경 이미지 설정 클래스) 상속
@@ -53,10 +58,12 @@ class UserInfo(BaseImage): ##BasePage(배경 이미지 설정 클래스) 상속
     def show_user_info(self):
         name = self.entry_name.get()
         age = self.entry_age.get()
+        gender = self.button_gender.get()
         
         if not name or not age:
             self.warning_label.config(text="⚠️빈 칸이 있습니다.", bg="white") # 경고 메세지 config로 라벨 수정
         elif not age.isdigit(): # 입력한 문자열이 숫자로 입력되었는지 확인하기 위함
             self.warning_label.config(text="⚠️나이를 숫자로 입력해주세요.", bg="white")
         else:
-            self.controller.swtich_frame("ShowWord")
+            self.controller.user.setInfo(name, gender, age)
+            self.controller.switch_frame("ShowWord")

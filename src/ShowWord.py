@@ -1,5 +1,6 @@
 import tkinter as tk
 import random
+from EstimatedNumber import EstimatedNumber
 from BaseImage import BaseImage
 
 # 단어 리스트 100개 일상에서 접하는 단어?
@@ -26,6 +27,7 @@ class ShowWord(BaseImage):
     def __init__(self, parent, controller):
         super().__init__(parent)
         self.controller = controller  # 컨트롤러는 주 창(App 클래스)
+        self.controller.user.set_random_words(random_words)
         self.set_background("src/assets/main_background-3rd.png")
 
         self.word_label = tk.Label(self, text="20개의 단어를 하나씩 보여드리겠습니다.\n⏰한 단어당 2초\n\n화면에 출력되는 단어를 기억하자!", font=("나눔고딕", 48),bg="white")
@@ -45,5 +47,8 @@ class ShowWord(BaseImage):
             #self.window.after(2000, self.show_word)  # 2초 후에 show_word 함수를 다시 호출
         else:
             self.word_label.config(text="끝!")
-            self.button_next = tk.Button(self, text="NEXT", font=("나눔고딕", 30)) #다음페이지(예상개수입력)로 넘어가는 커맨드추가하면 됨.
+            self.button_next = tk.Button(self, text="NEXT", font=("나눔고딕", 30), command=self.nextButton) #다음페이지(예상개수입력)로 넘어가는 커맨드추가하면 됨.
             self.button_next.pack(expand=True)
+
+    def nextButton(self):
+        self.controller.switch_frame("EstimatedNumber")

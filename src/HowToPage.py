@@ -27,4 +27,4 @@ class HowToPage(BaseImage):  # tk.Frame을 상속하여 페이지 생성
         
 
     def backTo(self):
-        self.controller.swtich_frame("StartPage") #사용자정보입력 페이지로 넘어가기
+        self.controller.switch_frame("StartPage") #사용자정보입력 페이지로 넘어가기
