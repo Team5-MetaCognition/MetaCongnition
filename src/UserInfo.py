@@ -1,16 +1,21 @@
 import tkinter as tk
+from PIL import Image, ImageTk
 from ShowWord import ShowWord
+from BaseImage import BaseImage
 
-class UserInfo(tk.Frame):
+
+class UserInfo(BaseImage): ##BasePage(배경 이미지 설정 클래스) 상속
     def __init__(self, parent, controller):
         super().__init__(parent)
-        self.controller = controller
+        self.controller = controller  # 컨트롤러는 주 창(App 클래스)
+        self.set_background("src/assets/user_info_background.png")
 
-        label = tk.Label(self, text="사용자 정보 입력")
-        label.pack(side ="top", fill="x", pady=10)
 
-        self.label_info=tk.Label(self,text="👤정보를 입력하세요.", font=("나눔고딕", 13))
-        self.label_info.place(x=740,y=100)
+        # label = tk.Label(self, text="사용자 정보 입력")
+        # label.pack(side ="top", fill="x", pady=10)
+
+        # self.label_info=tk.Label(self,text="👤정보를 입력하세요.", font=("나눔고딕", 13))
+        # self.label_info.place(x=740,y=100)
 
         # Label 및 Entry 위젯 추가
         self.label_name = tk.Label(self, text="이름:", font=("나눔고딕", 20))
