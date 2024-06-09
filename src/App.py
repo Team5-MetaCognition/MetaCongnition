@@ -9,6 +9,7 @@ from EstimatedNumber import EstimatedNumber
 from ReportScreen import ReportScreen
 from ResultScreen import ResultScreen
 from EnterWord import EnterWord
+from TestComplete import TestComplete
 from User import User
 
 # tk.Tk를 상속받아 창을 생성하고 관리
@@ -31,7 +32,7 @@ class MetacognitionTestApp(tk.Tk):
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
 
-        for Frame in (StartPage, HowToPage, UserInfo, ShowWord, EstimatedNumber, EnterWord, ResultScreen ,ReportScreen):  # 여러 페이지(Frame)를 초기화
+        for Frame in (StartPage, HowToPage, UserInfo, ShowWord, EstimatedNumber, EnterWord, TestComplete ,ResultScreen ,ReportScreen):  # 여러 페이지(Frame)를 초기화
             page_name = Frame.__name__
             frame = Frame(parent=container, controller=self)  # 각 Frame에 부모와 컨트롤러 전달
             self.frames[page_name] = frame  # 딕셔너리에 Frame 저장

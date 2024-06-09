@@ -2,12 +2,16 @@ import tkinter as tk
 from tkinter import messagebox
 from EnterWord import EnterWord
 from ReportScreen import ReportScreen
+from BaseImage import BaseImage
 
-class EstimatedNumber(tk.Frame):
+
+class EstimatedNumber(BaseImage):
     def __init__(self, parent, controller):
         super().__init__(parent)
         self.controller = controller
-
+        
+        self.set_background("src/assets/main_background-3rd.png")
+        
         # "메타인지 테스트" 타이틀 라벨
         self.title_label = tk.Label(self, text="메타인지 테스트", font=("Helvetica", 48))
         self.title_label.place(x=400, y=100)

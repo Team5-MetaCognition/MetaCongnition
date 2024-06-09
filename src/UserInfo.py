@@ -1,13 +1,8 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 from ShowWord import ShowWord
-<<<<<<< HEAD
 from User import User
 from BaseImage import BaseImage
-=======
-from User import User
->>>>>>> main
-
 
 class UserInfo(BaseImage): ##BasePage(배경 이미지 설정 클래스) 상속
     def __init__(self, parent, controller):
