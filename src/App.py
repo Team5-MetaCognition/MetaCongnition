@@ -48,6 +48,9 @@ class MetacognitionTestApp(tk.Tk):
 
         if page_name == "EnterWord":
             frame.start_timer()
+        elif page_name == "ReportScreen":
+            frame.set_user_info()
+            frame.draw_graph()
 
 # 블록은 현재 스크립트가 직접 실행될 때만 코드가 실행됩니다.
 if __name__ == "__main__":

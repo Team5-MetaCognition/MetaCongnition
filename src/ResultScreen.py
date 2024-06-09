@@ -19,7 +19,7 @@ class ResultScreen(BaseImage):
         result_frame.pack(expand=True)
 
         words_to_display = self.controller.user.random_words #랜덤으로 나온 20개 단어 호출
-        user_input_words = self.controller.user.inputWords #사용자에게 입력 받은 단어 저장
+        user_input_words = self.controller.user.input_words #사용자에게 입력 받은 단어 저장
         
         print("user_input_words:", user_input_words)
         count=0
@@ -36,6 +36,7 @@ class ResultScreen(BaseImage):
             word_label = tk.Label(result_frame, text=display_text, font=("나눔고딕", 30, "bold"), fg=word_color, bg='white')
             word_label.grid(row=i//5, column=i%5, padx=8, pady=20)
 
+        self.controller.user.set_matching_word_count(count)
         self.show_report_button = tk.Button(self, text="자세한 결과보기", command=self.show_report,height=3, width=20,font=("나눔고딕", 14))
         self.show_report_button.pack(pady=10)    
         

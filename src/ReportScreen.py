@@ -1,6 +1,10 @@
 import tkinter as tk
 from tkinter import filedialog
 from PIL import ImageGrab, Image, ImageTk
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import matplotlib.font_manager as fm
 
 class ReportScreen(tk.Frame):
     def __init__(self, parent, controller):
@@ -28,11 +32,11 @@ class ReportScreen(tk.Frame):
         
         # '이미지로 저장' 버튼 생성 및 배치 (오른쪽 위에 고정)
         self.save_image_button = tk.Button(self, text="이미지로 저장", command=self.save_as_image)
-        self.save_image_button.place(x=1350, y=30)
+        self.save_image_button.place(x=1300, y=30)
 
          # '종료' 버튼 생성 및 배치
-        # self.back_button = tk.Button(self, text="종료", command=self.exit)
-        # self.back_button.place(x=700, y=800)
+        self.back_button = tk.Button(self, text="종료", command=self.exit)
+        self.back_button.place(x=700, y=800)
 
     def display_result(self):
         # 점수에 따라 결과 내용 표시
@@ -89,5 +93,36 @@ class ReportScreen(tk.Frame):
         improvement_tips_label = tk.Label(self, text=improvement_tips_1st, font=("Arial", 14), justify=tk.LEFT)
         improvement_tips_label.place(x=120, y=620)
         
-    # def exit(self):
-    #     self.destroy()
+    def exit(self):
+        self.controller.destroy()
+
+    def draw_graph(self):
+        # 한글 폰트 설정
+        font_path = 'src/font/GangwonModuBold.ttf'  # 예시 경로, 시스템에 맞게 수정 필요
+        font_prop = fm.FontProperties(fname=font_path)
+
+        categories = ['입력 개수', '맞춘 개수', '예상 개수', '총 단어 개수']
+        print(self.controller.user.matching_word_counts)
+        print(self.controller.user.estimated_number)
+        values = [len(self.controller.user.input_words), self.controller.user.matching_word_counts, self.controller.user.estimated_number, 20]  # 예시 값
+
+        y = np.arange(len(categories))
+
+        figure = plt.figure(figsize=(5, 3)) # 크기를 적절히 조정
+        ax = figure.add_subplot(111)
+        ax.barh(y, values, color='skyblue')
+        ax.set_yticks(y)
+        plt.xticks(range(0, 25, 5))
+        ax.set_yticklabels(categories, fontproperties=font_prop)
+        ax.set_title('메타인지 테스트 결과', fontproperties=font_prop)
+
+        canvas_frame = tk.Frame(self, bg='lightblue', width=500, height=300)  # 배경색 설정
+        canvas_frame.pack(side='top', anchor='ne', padx=(0,130), pady=(90, 20))
+
+        canvas = FigureCanvasTkAgg(figure, master=canvas_frame)
+        canvas.draw()
+        canvas.get_tk_widget().grid(row=0, column=2, rowspan=3, sticky='ne', padx=10, pady=10)
+
+    def set_user_info(self):
+        user = self.controller.user
+        self.user_info_label.config(text=f"이름: {user.name}, 성별: {user.gender}, 나이: {user.age}")

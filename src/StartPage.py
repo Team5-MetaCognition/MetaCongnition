@@ -28,14 +28,14 @@ class StartPage(BaseImage):  # tk.Frame을 상속하여 페이지 생성
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure(2, weight=1)
 
-        self.start_button = tk.Button(self, text="테스트 시작", font=("Helvetica", 24),command=self.startTest)
+        self.start_button = tk.Button(self, text="테스트 시작", font=("Helvetica", 24),command=self.start_ttest)
         self.start_button.grid(row=3, column=1, padx=(10, 20), sticky="w")
 
-        self.method_button = tk.Button(self, text="테스트 방법", font=("Helvetica", 24),command=self.goToHowToPage)
+        self.method_button = tk.Button(self, text="테스트 방법", font=("Helvetica", 24),command=self.go_to_how_to_page)
         self.method_button.grid(row=3, column=1, padx=(10, 20), sticky="e")
 
-    def startTest(self):
+    def start_ttest(self):
         self.controller.switch_frame("UserInfo")
 
-    def goToHowToPage(self):
+    def go_to_how_to_page(self):
         self.controller.switch_frame("HowToPage")

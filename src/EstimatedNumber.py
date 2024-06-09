@@ -32,7 +32,7 @@ class EstimatedNumber(BaseImage):
         try:
             # 예상 개수를 가져와 정수로 변환
             estimated_number = int(self.entry.get())
-            self.controller.user.setEstimatedNumber(estimated_number)
+            self.controller.user.set_estimated_number(estimated_number)
             self.controller.switch_frame("EnterWord")
             
         except ValueError:
