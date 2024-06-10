@@ -35,11 +35,11 @@ class ResultScreen(BaseImage):
                 display_text = f"{word} X" #사용하자 맞추지 못한 단어 옆에는 X 표시
                 word_color="red" # 맞추지 못한 단어는 빨간색
             word_label = tk.Label(result_frame, text=display_text, font=("나눔고딕", 30, "bold"), fg=word_color, bg='white')
-            word_label.grid(row=i//5, column=i%5, padx=8, pady=20)
+            word_label.grid(row=i//5, column=i%5, padx=8, pady=15)
 
         self.controller.user.set_matching_word_count(count)
         self.show_report_button = ctk.CTkButton(self, text="자세한 결과보기", command=self.show_report,font=("나눔고딕", 14, "bold"), width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
-        self.show_report_button.pack(pady=10)    
+        self.show_report_button.place(x=670, y=650) 
         
     def show_report(self):
         self.controller.switch_frame("ReportScreen")
