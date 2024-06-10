@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.font_manager as fm
+import customtkinter as ctk
 
 class ReportScreen(tk.Frame):
     def __init__(self, parent, controller):
@@ -35,7 +36,7 @@ class ReportScreen(tk.Frame):
         self.save_image_button.place(x=1300, y=30)
 
          # '종료' 버튼 생성 및 배치
-        self.back_button = tk.Button(self, text="종료", command=self.exit)
+        self.back_button = ctk.CTkButton(self, text="종료", command=self.exit, font=("나눔고딕", 14, "bold"), width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
         self.back_button.place(x=700, y=800)
 
     def display_result(self):

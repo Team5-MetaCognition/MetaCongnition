@@ -1,5 +1,6 @@
 import tkinter as tk
 from BaseImage import BaseImage
+import customtkinter as ctk
 
 class ResultScreen(BaseImage):
     def __init__(self, parent, controller):
@@ -37,7 +38,7 @@ class ResultScreen(BaseImage):
             word_label.grid(row=i//5, column=i%5, padx=8, pady=20)
 
         self.controller.user.set_matching_word_count(count)
-        self.show_report_button = tk.Button(self, text="자세한 결과보기", command=self.show_report,height=3, width=20,font=("나눔고딕", 14))
+        self.show_report_button = ctk.CTkButton(self, text="자세한 결과보기", command=self.show_report,font=("나눔고딕", 14, "bold"), width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
         self.show_report_button.pack(pady=10)    
         
     def show_report(self):

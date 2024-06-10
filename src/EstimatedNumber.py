@@ -3,7 +3,7 @@ from tkinter import messagebox
 from EnterWord import EnterWord
 from ReportScreen import ReportScreen
 from BaseImage import BaseImage
-
+import customtkinter as ctk
 
 class EstimatedNumber(BaseImage):
     def __init__(self, parent, controller):
@@ -22,11 +22,11 @@ class EstimatedNumber(BaseImage):
 
         # 예상 개수 입력 칸
         self.entry = tk.Entry(self, width=30,font=("나눔고딕", 24))
-        self.entry.place(x=450, y=500)
+        self.entry.place(x=480, y=500)
 
         # 확인 버튼
-        self.confirm_button = tk.Button(self, text="확인", command=self.confirm_input,height=3, width=10,font=("나눔고딕", 24))
-        self.confirm_button.place(x=650, y=700)
+        self.confirm_button = ctk.CTkButton(self, text="확인", command=self.confirm_input, font=("나눔고딕", 24, "bold"), width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
+        self.confirm_button.place(x=650, y=600)
 
     def confirm_input(self):
         try:
