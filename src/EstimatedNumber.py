@@ -10,23 +10,23 @@ class EstimatedNumber(BaseImage):
         super().__init__(parent)
         self.controller = controller
         
-        self.set_background("src/assets/main_background-3rd.png")
+        self.set_background("src/assets/EstimatedNumber_bg.png")
         
-        # "메타인지 테스트" 타이틀 라벨
-        self.title_label = tk.Label(self, text="메타인지 테스트", font=("Helvetica", 48))
-        self.title_label.place(x=400, y=100)
+        # # "메타인지 테스트" 타이틀 라벨
+        # self.title_label = tk.Label(self, text="메타인지 테스트", font=("Helvetica", 48))
+        # self.title_label.place(x=400, y=100)
 
-        # 예상 개수 입력 라벨
-        self.input_label = tk.Label(self, text="예상 개수를 입력하세요:",font=("Helvetica", 24))
-        self.input_label.place(x=200, y=500)
+        # # 예상 개수 입력 라벨
+        # self.input_label = tk.Label(self, text="예상 개수를 입력하세요:",font=("Helvetica", 24))
+        # self.input_label.place(x=200, y=500)
 
         # 예상 개수 입력 칸
-        self.entry = tk.Entry(self, width=30,font=("Helvetica", 24))
-        self.entry.place(x=600, y=500)
+        self.entry = tk.Entry(self, width=30,font=("나눔고딕", 24))
+        self.entry.place(x=450, y=500)
 
         # 확인 버튼
-        self.confirm_button = tk.Button(self, text="확인", command=self.confirm_input,height=3, width=10,font=("Helvetica", 24))
-        self.confirm_button.place(x=550, y=700)
+        self.confirm_button = tk.Button(self, text="확인", command=self.confirm_input,height=3, width=10,font=("나눔고딕", 24))
+        self.confirm_button.place(x=650, y=700)
 
     def confirm_input(self):
         try:

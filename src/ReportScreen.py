@@ -16,12 +16,12 @@ class ReportScreen(tk.Frame):
         self.user_info_label = tk.Label(
             self, 
             text=f"이름: {self.user.name}, 성별: {self.user.gender}, 나이: {self.user.age}", 
-            font=("Arial", 14)
+            font=("나눔고딕", 14)
         )
         self.user_info_label.place(x=120, y=100)
 
         # '결과 화면' 레이블 생성 및 배치
-        self.label = tk.Label(self, text="당신의 메타인지 능력은 ", font=("Arial", 20))
+        self.label = tk.Label(self, text="당신의 메타인지 능력은 ", font=("나눔고딕", 20))
         self.label.place(x=120, y=130)
         
         # 결과 내용을 표시하는 메소드 호출
@@ -54,11 +54,11 @@ class ReportScreen(tk.Frame):
             result_threelevel_text = "이 수준의 개인은 자신의 사고 과정, 학습 전략 또는 성과에 대해 거의 또는 전혀 인식하지 못합니다. 그들은 자신의 학습 경험을 반영하거나 과제에 대한 대안적 접근 방식을 거의 고려하지 않을 수 있습니다. 명확한 목표를 설정하고 진행 상황을 모니터링하거나 피드백을 기반으로 전략을 조정하는 데 어려움을 겪을 수 있습니다."
 
         # 결과 내용을 표시할 레이블 생성 및 배치
-        self.result_label = tk.Label(self, text=result_onelevel_text, font=("Arial", 30))
+        self.result_label = tk.Label(self, text=result_onelevel_text, font=("나눔고딕", 30))
         self.result_label.place(x=220, y=220)
 
         # 결과 내용 자세하게 표시
-        self.detail_label = tk.Label(self, text=result_twolevel_text, font=("Arial", 20))
+        self.detail_label = tk.Label(self, text=result_twolevel_text, font=("나눔고딕", 20))
         self.detail_label.place(x=120, y=350)
         
         # result_threelevel_text를 온점 기준으로 분할하여 여러 라벨로 출력
@@ -70,7 +70,7 @@ class ReportScreen(tk.Frame):
                 # 마지막 문장에 이미 온점이 있다면 추가하지 않음
                 if not sentence.endswith("."):
                     sentence += "."
-                self.detail_label2 = tk.Label(self, text=sentence, font=("Arial", 14))
+                self.detail_label2 = tk.Label(self, text=sentence, font=("나눔고딕", 14))
                 self.detail_label2.place(x=120, y=y_position)
                 y_position += 30  # 다음 라벨의 y 위치 조정
 
@@ -88,9 +88,9 @@ class ReportScreen(tk.Frame):
         improvement_tips_1st = "명상 (마인드셋)"
         
          # 메타인지 향상 방법을 표시할 레이블 생성 및 배치
-        improvement_tips_title_label = tk.Label(self, text=improvement_tips_title, font=("Arial", 20), justify=tk.LEFT)
+        improvement_tips_title_label = tk.Label(self, text=improvement_tips_title, font=("나눔고딕", 20), justify=tk.LEFT)
         improvement_tips_title_label.place(x=120, y=520)
-        improvement_tips_label = tk.Label(self, text=improvement_tips_1st, font=("Arial", 14), justify=tk.LEFT)
+        improvement_tips_label = tk.Label(self, text=improvement_tips_1st, font=("나눔고딕", 14), justify=tk.LEFT)
         improvement_tips_label.place(x=120, y=620)
         
     def exit(self):
