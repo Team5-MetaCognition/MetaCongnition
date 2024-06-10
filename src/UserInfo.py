@@ -3,6 +3,7 @@ from PIL import Image, ImageTk
 from ShowWord import ShowWord
 from User import User
 from BaseImage import BaseImage
+import customtkinter as ctk
 
 class UserInfo(BaseImage): ##BasePage(배경 이미지 설정 클래스) 상속
     def __init__(self, parent, controller):
@@ -42,8 +43,8 @@ class UserInfo(BaseImage): ##BasePage(배경 이미지 설정 클래스) 상속
         self.entry_age.place(x=720,y=510)
 
         # 다음 버튼 추가
-        self.next_button = tk.Button(self, text="입력 완료", font=("나눔고딕", 15),command=self.show_user_info, bg="white")
-        self.next_button.place(x=750,y=700)
+        self.next_button = ctk.CTkButton(self, text="입력 완료", font=("나눔고딕", 15),command=self.show_user_info, width=120, height=40, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
+        self.next_button.place(x=750,y=650)
 
         # 경고 메시지 라벨 추가 (입력 완료 버튼을 눌렀을 때 빈칸이 있으면 경고 메세지를 출력할수있게)
         self.warning_label = tk.Label(self, text="", font=("나눔고딕", 15), fg="red", bg="white")

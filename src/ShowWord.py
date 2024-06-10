@@ -2,6 +2,7 @@ import tkinter as tk
 import random
 from EstimatedNumber import EstimatedNumber
 from BaseImage import BaseImage
+import customtkinter as ctk
 
 # 단어 리스트 100개 일상에서 접하는 단어?
 words_list = [
@@ -33,8 +34,8 @@ class ShowWord(BaseImage):
         self.word_label = tk.Label(self, text="20개의 단어를 하나씩 보여드리겠습니다.\n⏰한 단어당 2초\n\n화면에 출력되는 단어를 기억하자!", font=("나눔고딕", 48),bg="white")
         self.word_label.pack(expand=True, pady=100) # 단어 글자수가 달라서 상대적 위치를 지정해주는 pack 사용
 
-        self.button_start= tk.Button(self,text="START",font=("나눔고딕", 30),command=self.show_word)
-        self.button_start.pack(expand=True, pady=(0, 0))
+        self.button_start= ctk.CTkButton(self,text="START",font=("나눔고딕", 30, "bold"),command=self.show_word, width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
+        self.button_start.pack(expand=True, pady=(0, 150))
 
         self.index = 0
 
@@ -47,8 +48,8 @@ class ShowWord(BaseImage):
             #self.window.after(2000, self.show_word)  # 2초 후에 show_word 함수를 다시 호출
         else:
             self.word_label.config(text="끝!")
-            self.button_next = tk.Button(self, text="NEXT", font=("나눔고딕", 30), command=self.nextButton) #다음페이지(예상개수입력)로 넘어가는 커맨드추가하면 됨.
-            self.button_next.pack(expand=True)
+            self.button_next = ctk.CTkButton(self, text="NEXT", font=("나눔고딕", 30, "bold"), command=self.nextButton, width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000") #다음페이지(예상개수입력)로 넘어가는 커맨드추가하면 됨.
+            self.button_next.pack(expand=True, pady=(0, 150))
 
     def nextButton(self):
         self.controller.switch_frame("EstimatedNumber")

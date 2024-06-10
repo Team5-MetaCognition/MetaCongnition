@@ -1,8 +1,6 @@
 import tkinter as tk
-# from tkinter import PhotoImage
-# from PIL import Image, ImageTk
-# from StartPage import StartPage
 from BaseImage import BaseImage
+import customtkinter as ctk
 
 class HowToPage(BaseImage):  
     def __init__(self, parent, controller):
@@ -24,7 +22,7 @@ class HowToPage(BaseImage):
 #         "2. 외운단어를 맞추기 전 몇개를 맞출 수 있을지 개수를 적는다.\n"
 #         "3. 외운단어를 2분간 적는다.\n"
 #         "4. 테스트 전에 몇 개를 맞출지 예상한 개수와 실제 외운 단어 개수를 비교한다.\n"
-        self.start_test_btn = tk.Button(self, text="테스트 시작", command=self.backTo,height=3, width=20,font=("나눔고딕", 14))
+        self.start_test_btn = ctk.CTkButton(self, text="테스트 시작", command=self.backTo,width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000", font=("나눔고딕", 14, "bold"))
         self.start_test_btn.place(x=650, y=750)
 
     def backTo(self):

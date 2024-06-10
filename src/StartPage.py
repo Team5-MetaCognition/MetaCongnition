@@ -1,23 +1,14 @@
 import tkinter as tk
-from tkinter import PhotoImage
 from PIL import Image, ImageTk
 from tkinter import messagebox
 from BaseImage import BaseImage
+import customtkinter as ctk
 
 class StartPage(BaseImage):  # tk.Frame을 상속하여 페이지 생성
     def __init__(self, parent, controller):
         super().__init__(parent)
         self.controller = controller  # 컨트롤러는 주 창(App 클래스)
         self.set_background("src/assets/start.png")
-
-
-        # image = Image.open("src/assets/start.png")
-        # image = image.resize((self.winfo_screenwidth(), self.winfo_screenheight()))
-        # photo = ImageTk.PhotoImage(image)
-
-        # self.background_label = tk.Label(self, image=photo)
-        # self.background_label.image = photo  # PhotoImage가 가비지 컬렉션에 의해 제거되지 않도록 유지
-        # self.background_label.place(relwidth=1, relheight=1)  # 프레임 전체에 이미지 채우기
 
         self.grid_rowconfigure(0, weight=1)
         self.grid_rowconfigure(1, weight=1)
@@ -28,13 +19,13 @@ class StartPage(BaseImage):  # tk.Frame을 상속하여 페이지 생성
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure(2, weight=1)
 
-        self.start_button = tk.Button(self, text="테스트 시작", font=("Helvetica", 24),command=self.start_ttest)
-        self.start_button.grid(row=3, column=1, padx=(10, 20), sticky="w")
+        self.start_button = ctk.CTkButton(self, text="테스트 시작", font=("나눔고딕", 30, "bold"), command=self.start_test, width=230, height=80, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
+        self.start_button.grid(row=4, column=1, sticky="wn")
+        
+        self.method_button = ctk.CTkButton(self, text="테스트 방법", font=("나눔고딕", 30, "bold"), command=self.go_to_how_to_page, width=230, height=80, fg_color="#fae375", hover_color="#b09307",text_color="#000000")   
+        self.method_button.grid(row=4, column=1, sticky="en")
 
-        self.method_button = tk.Button(self, text="테스트 방법", font=("Helvetica", 24),command=self.go_to_how_to_page)
-        self.method_button.grid(row=3, column=1, padx=(10, 20), sticky="e")
-
-    def start_ttest(self):
+    def start_test(self):
         self.controller.switch_frame("UserInfo")
 
     def go_to_how_to_page(self):
