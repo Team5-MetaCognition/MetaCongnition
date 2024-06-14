@@ -11,22 +11,8 @@ class UserInfo(BaseImage): ##BasePage(배경 이미지 설정 클래스) 상속
         self.controller = controller  # 컨트롤러는 주 창(App 클래스)
         self.set_background("src/assets/user_info_background-3rd.png")
 
-
-        # label = tk.Label(self, text="사용자 정보 입력")
-        # label.pack(side ="top", fill="x", pady=10)
-
-        # self.label_info=tk.Label(self,text="👤정보를 입력하세요.", font=("나눔고딕", 13))
-        # self.label_info.place(x=740,y=100)
-
-        # Label 및 Entry 위젯 추가
-        # self.label_name = tk.Label(self, text="이름:", font=("나눔고딕", 20), bg="white")
         self.entry_name = tk.Entry(self, width=15,font=("나눔고딕", 24))
-        # self.label_name.place(x=650,y=200)
-        self.entry_name.place(x=720,y=260)
-
-        # self.label_gender = tk.Label(self, text="성별:",font=("나눔고딕", 20), bg="white")
-        # self.label_gender.place(x=650,y=300)
-    
+        self.entry_name.place(x=720,y=260)    
 
         self.button_gender = tk.StringVar(self)  # 라디오 버튼 값을 저장할 변수
         self.button_gender.set("남성")  # 초기값 설정
@@ -37,10 +23,8 @@ class UserInfo(BaseImage): ##BasePage(배경 이미지 설정 클래스) 상속
         self.button_male.place(x=720,y=375)
         self.button_female.place(x=850,y=375)
 
-        # self.label_age = tk.Label(self, text="나이:",font=("나눔고딕", 20), bg="white")
         self.entry_age = tk.Entry(self, width=15,font=("나눔고딕", 24))
-        # self.label_age.place(x=650,y=400)
-        self.entry_age.place(x=720,y=510)
+        self.entry_age.place(x=720,y=530)
 
         # 다음 버튼 추가
         self.next_button = ctk.CTkButton(self, text="입력 완료", font=("나눔고딕", 30, "bold"),command=self.validatioin_user_info, width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")

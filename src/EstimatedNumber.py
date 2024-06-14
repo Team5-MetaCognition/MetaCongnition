@@ -11,14 +11,6 @@ class EstimatedNumber(BaseImage):
         self.controller = controller
         
         self.set_background("src/assets/EstimatedNumber_bg.png")
-        
-        # # "메타인지 테스트" 타이틀 라벨
-        # self.title_label = tk.Label(self, text="메타인지 테스트", font=("Helvetica", 48))
-        # self.title_label.place(x=400, y=100)
-
-        # # 예상 개수 입력 라벨
-        # self.input_label = tk.Label(self, text="예상 개수를 입력하세요:",font=("Helvetica", 24))
-        # self.input_label.place(x=200, y=500)
 
         # 예상 개수 입력 칸
         self.entry = tk.Entry(self, width=30,font=("나눔고딕", 24))
