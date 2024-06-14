@@ -26,7 +26,7 @@ class EstimatedNumber(BaseImage):
 
         # 확인 버튼
         self.confirm_button = ctk.CTkButton(self, text="확인", command=self.confirm_input, font=("나눔고딕", 24, "bold"), width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
-        self.confirm_button.place(x=650, y=600)
+        self.confirm_button.place(x=670,y=650)
 
     def confirm_input(self):
         try:

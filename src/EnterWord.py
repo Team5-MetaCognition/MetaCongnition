@@ -22,8 +22,8 @@ class EnterWord(BaseImage):
         self.entry.place(x=620, y=480)
         self.entry.bind("<Return>", self.on_enter)
 
-        self.confirm_button = ctk.CTkButton(self, text="모두 입력 완료", command=self.confirm_btn, font=("나눔고딕", 14, "bold"), width=170, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
-        self.confirm_button.place(x=650, y=580)
+        self.confirm_button = ctk.CTkButton(self, text="모두 입력 완료", command=self.confirm_btn, font=("나눔고딕", 30, "bold"), width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
+        self.confirm_button.place(x=650,y=650)
 
     def add_second(self):
         if self.second > 0:

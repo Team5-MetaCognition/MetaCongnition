@@ -22,7 +22,6 @@ class ResultScreen(BaseImage):
         words_to_display = self.controller.user.random_words #랜덤으로 나온 20개 단어 호출
         user_input_words = self.controller.user.input_words #사용자에게 입력 받은 단어 저장
         
-        print("user_input_words:", user_input_words)
         count=0
 
         
@@ -38,8 +37,8 @@ class ResultScreen(BaseImage):
             word_label.grid(row=i//5, column=i%5, padx=8, pady=15)
 
         self.controller.user.set_matching_word_count(count)
-        self.show_report_button = ctk.CTkButton(self, text="자세한 결과보기", command=self.show_report,font=("나눔고딕", 14, "bold"), width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
-        self.show_report_button.place(x=670, y=650) 
+        self.show_report_button = ctk.CTkButton(self, text="자세한 결과보기", command=self.show_report,font=("나눔고딕", 30, "bold"), width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
+        self.show_report_button.place(x=650,y=650)
         
     def show_report(self):
         self.controller.switch_frame("ReportScreen")

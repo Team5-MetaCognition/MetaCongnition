@@ -35,12 +35,12 @@ class ShowWord(BaseImage):
         self.word_label.pack(expand=True, pady=100) # 단어 글자수가 달라서 상대적 위치를 지정해주는 pack 사용
 
         self.button_start= ctk.CTkButton(self,text="START",font=("나눔고딕", 30, "bold"),command=self.show_word, width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
-        self.button_start.pack(expand=True, pady=(0, 150))
+        self.button_start.place(x=670,y=650)
 
         self.index = 0
 
     def show_word(self):
-        self.button_start.pack_forget()  # 시작 버튼 숨기기
+        self.button_start.place_forget()  # 시작 버튼 숨기기
         if self.index < 20:
             self.word_label.config(text=random_words[self.index], bg="white")
             self.index += 1
@@ -49,7 +49,7 @@ class ShowWord(BaseImage):
         else:
             self.word_label.config(text="끝!")
             self.button_next = ctk.CTkButton(self, text="NEXT", font=("나눔고딕", 30, "bold"), command=self.nextButton, width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000") #다음페이지(예상개수입력)로 넘어가는 커맨드추가하면 됨.
-            self.button_next.pack(expand=True, pady=(0, 150))
+            self.button_next.place(x=670,y=650)
 
     def nextButton(self):
         self.controller.switch_frame("EstimatedNumber")
