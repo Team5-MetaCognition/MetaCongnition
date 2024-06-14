@@ -38,13 +38,15 @@ class ShowWord(BaseImage):
         self.button_start.place(x=670,y=650)
 
         self.index = 0
+        self.show_word_id = None  # show_word 함수의 after ID 저장 변수
 
     def show_word(self):
         self.button_start.place_forget()  # 시작 버튼 숨기기
+        
         if self.index < 20:
             self.word_label.config(text=random_words[self.index], bg="white")
             self.index += 1
-            self.after(100, self.show_word) #빠르게 TEST
+            self.show_word_id = self.after(100, self.show_word) #빠르게 TEST
             #self.window.after(2000, self.show_word)  # 2초 후에 show_word 함수를 다시 호출
         else:
             self.word_label.config(text="끝!")
@@ -52,4 +54,5 @@ class ShowWord(BaseImage):
             self.button_next.place(x=670,y=650)
 
     def nextButton(self):
+        self.after_cancel(self.show_word_id)
         self.controller.switch_frame("EstimatedNumber")

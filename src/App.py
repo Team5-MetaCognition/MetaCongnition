@@ -42,15 +42,21 @@ class MetacognitionTestApp(tk.Tk):
     
     def switch_frame(self, page_name):
         frame = self.frames[page_name]  # 전달된 페이지 이름에 해당하는 Frame을 가져옴
-        if hasattr(frame, 'show_results'):
-            frame.show_results() # 프레임 전환 시 show_results 호출
+        
         frame.tkraise()  # 해당 Frame을 화면에 표시
 
         if page_name == "EnterWord":
             frame.start_timer()
+        elif page_name == "ResultScreen":
+            frame.show_results()
         elif page_name == "ReportScreen":
-            frame.set_user_info()
+            frame.display_user_info()
             frame.draw_graph()
+
+    def exit(self):
+        for frame in self.frames.values():
+            frame.destroy()
+        self.quit()
 
 # 블록은 현재 스크립트가 직접 실행될 때만 코드가 실행됩니다.
 if __name__ == "__main__":

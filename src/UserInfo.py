@@ -43,7 +43,7 @@ class UserInfo(BaseImage): ##BasePage(배경 이미지 설정 클래스) 상속
         self.entry_age.place(x=720,y=510)
 
         # 다음 버튼 추가
-        self.next_button = ctk.CTkButton(self, text="입력 완료", font=("나눔고딕", 30, "bold"),command=self.show_user_info, width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
+        self.next_button = ctk.CTkButton(self, text="입력 완료", font=("나눔고딕", 30, "bold"),command=self.validatioin_user_info, width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
         self.next_button.place(x=670,y=650)
 
         # 경고 메시지 라벨 추가 (입력 완료 버튼을 눌렀을 때 빈칸이 있으면 경고 메세지를 출력할수있게)
@@ -51,7 +51,7 @@ class UserInfo(BaseImage): ##BasePage(배경 이미지 설정 클래스) 상속
         self.warning_label.place(x=820,y=600,anchor="center")
 
 
-    def show_user_info(self):
+    def validatioin_user_info(self):
         name = self.entry_name.get()
         age = self.entry_age.get()
         gender = self.button_gender.get()
