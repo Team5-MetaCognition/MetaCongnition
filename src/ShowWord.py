@@ -50,9 +50,9 @@ class ShowWord(BaseImage):
             self.show_word_id = self.after(2000, self.show_word)  # 2초 후에 show_word 함수를 다시 호출
         else:
             self.word_label.config(text="끝!")
-            self.button_next = ctk.CTkButton(self, text="NEXT", font=("나눔고딕", 30, "bold"), command=self.nextButton, width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000") #다음페이지(예상개수입력)로 넘어가는 커맨드추가하면 됨.
+            self.button_next = ctk.CTkButton(self, text="NEXT", font=("나눔고딕", 30, "bold"), command=self.next_page, width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000") #다음페이지(예상개수입력)로 넘어가는 커맨드추가하면 됨.
             self.button_next.place(x=670,y=650)
 
-    def nextButton(self):
+    def next_page(self):
         self.after_cancel(self.show_word_id)
         self.controller.switch_frame("EstimatedNumber")
