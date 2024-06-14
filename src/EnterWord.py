@@ -4,19 +4,15 @@ from BaseImage import BaseImage
 import customtkinter as ctk
 
 class EnterWord(BaseImage):
-    second=120
-
     def __init__(self, parent, controller):
         super().__init__(parent)
         self.controller = controller
         self.set_background("src/assets/EnterWord_bg.png")
-
+        self.second=120
+        self.add_second_after = None 
     
         self.timer_label = tk.Label(self, text="120초 (남은 시간)", bg="white", font=("나눔고딕", 18))
         self.timer_label.place(x=670, y=160)
-
-        # self.input_label = tk.Label(self, text="외운 단어들을 입력하세요")
-        # self.input_label.pack(expand=True)
 
         self.entry = tk.Entry(self, width=15,font=("나눔고딕", 24))
         self.entry.place(x=620, y=480)
@@ -29,9 +25,9 @@ class EnterWord(BaseImage):
         if self.second > 0:
             self.timer_label.config(text=f"{self.second}초 (남은 시간)")
             self.second -= 1
-            self.after(1000, self.add_second)
+            self.add_second_after=self.after(1000, self.add_second)
         else:
-            self.destroy()
+            self.after_cancel(self.add_second_after)
             self.controller.switch_frame("TestComplete")
 
     def start_timer(self):
@@ -43,5 +39,5 @@ class EnterWord(BaseImage):
         self.entry.delete(0, tk.END)
 
     def confirm_btn(self):
-        self.destroy()
+        self.after_cancel(self.add_second_after)
         self.controller.switch_frame("TestComplete")
