@@ -4,6 +4,7 @@ class User:
     estimated_number = 0
     random_words = []
     matching_word_counts=0
+    difference_abs = 0
 
     def __init__(self, name: str="", gender: str="", age: int=0, score: int=0):
         self.name = name
@@ -27,6 +28,6 @@ class User:
     
     def set_matching_word_count(self, count):
         self.matching_word_counts = count
-        
-# 샘플 사용자 데이터
-user = User(name="이예진", gender="여성", age=22, score=1)
+    
+    def calculate_difference_abs(self): #유저가 예상한 개수와 실제 맞춘 개수의 차이를 절대값으로 저장
+        self.difference_abs = abs(self.estimated_number - self.matching_word_counts)

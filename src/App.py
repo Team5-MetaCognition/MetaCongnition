@@ -50,6 +50,7 @@ class MetacognitionTestApp(tk.Tk):
         elif page_name == "ResultScreen":
             frame.show_results()
         elif page_name == "ReportScreen":
+            frame.display_result()  
             frame.display_user_info()
             frame.draw_graph()
 

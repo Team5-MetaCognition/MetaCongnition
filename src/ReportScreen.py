@@ -44,11 +44,12 @@ class ReportScreen(BaseImage):
 
     def display_result(self):
         # 점수에 따라 결과 내용 표시
-        if self.user.score <= 2:
+        self.user.calculate_difference_abs()
+        if self.user.difference_abs  <= 2:
             result_onelevel_text = "상"
             result_twolevel_text = "높은 인식"
             result_threelevel_text = "이 수준의 개인은 자신의 사고 과정, 학습 전략 및 성과에 대한 높은 수준의 인식을 나타냅니다. 그들은 지속적으로 비판적 성찰에 참여하고, 명확하고 달성 가능한 목표를 설정하고, 해당 목표를 향한 진행 상황을 효과적으로 모니터링합니다. 그들은 작업에 대한 접근 방식에서 높은 수준의 유연성을 보여주고, 피드백과 변화하는 상황에 따라 전략을 쉽게 적용합니다. 학습과 성과 향상을 위해 다양한 자원과 지원 시스템을 적극적으로 모색하고 활용합니다. "
-        elif 2 < self.user.score <= 5:
+        elif 2 < self.user.difference_abs  <= 5:
             result_onelevel_text = "중"
             result_twolevel_text = "기본 인식"
             result_threelevel_text = "이 수준의 개인은 자신의 사고 과정을 어느 정도 인식하고 있으며 때때로 자신의 학습 경험을 반영할 수 있습니다. 일관되지는 않더라도 스스로 기본 목표를 설정하고 진행 상황을 모니터링하기 위해 어느 정도 노력할 수 있습니다. 그들은 작업에 대한 접근 방식에서 제한된 유연성을 보여줄 수 있으며 심각한 문제에 직면할 때 도움을 구할 수 있습니다. "
