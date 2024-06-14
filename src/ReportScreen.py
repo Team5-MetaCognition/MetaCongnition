@@ -35,7 +35,7 @@ class ReportScreen(BaseImage):
         self.display_improvement_tips()
         
         # '이미지로 저장' 버튼 생성 및 배치 (오른쪽 위에 고정)
-        self.save_image_button = tk.Button(self, text="이미지로 저장", command=self.save_as_image)
+        self.save_image_button = ctk.CTkButton(self, text="이미지로 저장", command=self.save_as_image, font=("나눔고딕", 10), width=100, height=40, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
         self.save_image_button.place(x=1300, y=30)
 
          # '종료' 버튼 생성 및 배치

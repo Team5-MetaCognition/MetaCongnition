@@ -35,24 +35,24 @@ class ShowWord(BaseImage):
         self.word_label.pack(expand=True, pady=100) # 단어 글자수가 달라서 상대적 위치를 지정해주는 pack 사용
 
         self.button_start= ctk.CTkButton(self,text="START",font=("나눔고딕", 30, "bold"),command=self.show_word, width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
-        self.button_start.pack(expand=True, pady=(0, 150))
+        self.button_start.place(x=670,y=650)
 
         self.index = 0
         self.show_word_id = None  # show_word 함수의 after ID 저장 변수
 
     def show_word(self):
-        self.button_start.pack_forget()  # 시작 버튼 숨기기
-        
+        self.button_start.place_forget()  # 시작 버튼 숨기기
+
         if self.index < 20:
             self.word_label.config(text=random_words[self.index], bg="white")
             self.index += 1
-            self.show_word_id = self.after(100, self.show_word) #빠르게 TEST
-            #self.window.after(2000, self.show_word)  # 2초 후에 show_word 함수를 다시 호출
+            # self.show_word_id = self.after(100, self.show_word) # 빠르게 TEST
+            self.show_word_id = self.after(2000, self.show_word)  # 2초 후에 show_word 함수를 다시 호출
         else:
             self.word_label.config(text="끝!")
-            self.button_next = ctk.CTkButton(self, text="NEXT", font=("나눔고딕", 30, "bold"), command=self.nextButton, width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000") #다음페이지(예상개수입력)로 넘어가는 커맨드추가하면 됨.
-            self.button_next.pack(expand=True, pady=(0, 150))
+            self.button_next = ctk.CTkButton(self, text="NEXT", font=("나눔고딕", 30, "bold"), command=self.next_page, width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000") #다음페이지(예상개수입력)로 넘어가는 커맨드추가하면 됨.
+            self.button_next.place(x=670,y=650)
 
-    def nextButton(self):
+    def next_page(self):
         self.after_cancel(self.show_word_id)
         self.controller.switch_frame("EstimatedNumber")
