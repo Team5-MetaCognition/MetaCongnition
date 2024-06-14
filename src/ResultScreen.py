@@ -37,8 +37,8 @@ class ResultScreen(BaseImage):
             word_label.grid(row=i//5, column=i%5, padx=8, pady=15)
 
         self.controller.user.set_matching_word_count(count)
-        self.show_report_button = ctk.CTkButton(self, text="자세한 결과보기", command=self.show_report,font=("나눔고딕", 14, "bold"), width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
-        self.show_report_button.place(x=670, y=650) 
+        self.show_report_button = ctk.CTkButton(self, text="자세한 결과보기", command=self.show_report,font=("나눔고딕", 30, "bold"), width=150, height=50, fg_color="#fae375", hover_color="#b09307",text_color="#000000")
+        self.show_report_button.place(x=650,y=650)
         
     def show_report(self):
         self.controller.switch_frame("ReportScreen")
