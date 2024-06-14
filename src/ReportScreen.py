@@ -44,11 +44,12 @@ class ReportScreen(BaseImage):
 
     def display_result(self):
         # 점수에 따라 결과 내용 표시
-        if self.user.score <= 2:
+        self.user.calculate_difference_abs()
+        if self.user.difference_abs  <= 2:
             result_onelevel_text = "상"
             result_twolevel_text = "높은 인식"
             result_threelevel_text = "이 수준의 개인은 자신의 사고 과정, 학습 전략 및 성과에 대한 높은 수준의 인식을 나타냅니다. 그들은 지속적으로 비판적 성찰에 참여하고, 명확하고 달성 가능한 목표를 설정하고, 해당 목표를 향한 진행 상황을 효과적으로 모니터링합니다. 그들은 작업에 대한 접근 방식에서 높은 수준의 유연성을 보여주고, 피드백과 변화하는 상황에 따라 전략을 쉽게 적용합니다. 학습과 성과 향상을 위해 다양한 자원과 지원 시스템을 적극적으로 모색하고 활용합니다. "
-        elif 2 < self.user.score <= 5:
+        elif 2 < self.user.difference_abs  <= 5:
             result_onelevel_text = "중"
             result_twolevel_text = "기본 인식"
             result_threelevel_text = "이 수준의 개인은 자신의 사고 과정을 어느 정도 인식하고 있으며 때때로 자신의 학습 경험을 반영할 수 있습니다. 일관되지는 않더라도 스스로 기본 목표를 설정하고 진행 상황을 모니터링하기 위해 어느 정도 노력할 수 있습니다. 그들은 작업에 대한 접근 방식에서 제한된 유연성을 보여줄 수 있으며 심각한 문제에 직면할 때 도움을 구할 수 있습니다. "
@@ -59,15 +60,15 @@ class ReportScreen(BaseImage):
 
         # 결과 내용을 표시할 레이블 생성 및 배치
         self.result_label = tk.Label(self, text=result_onelevel_text, font=("나눔고딕", 30), bg="white")
-        self.result_label.place(x=220, y=220)
+        self.result_label.place(x=220, y=270)
 
         # 결과 내용 자세하게 표시
         self.detail_label = tk.Label(self, text=result_twolevel_text, font=("나눔고딕", 20), bg="white")
-        self.detail_label.place(x=120, y=350)
+        self.detail_label.place(x=120, y=400)
         
         # result_threelevel_text를 온점 기준으로 분할하여 여러 라벨로 출력
         sentences = result_threelevel_text.split(". ")
-        y_position = 400
+        y_position = 450
         for sentence in sentences:
             sentence = sentence.strip()  # 문자열 양쪽 공백 제거
             if sentence:  # 빈 문자열이 아니면 라벨 생성
@@ -91,21 +92,21 @@ class ReportScreen(BaseImage):
         improvement_tips_title = "메타인지 향상 방법"
         improvement_tips = "자신의 사고 과정을 지속적으로 점검하고, 학습 목표 설정 후 주기적으로 성취도를 평가해야합니다"
         self.recommend_label = tk.Label(self, text="추천활동:", font=("나눔고딕", 14), bg="white")
-        self.recommend_label.place(x=120, y=660)
+        self.recommend_label.place(x=120, y=690)
 
         
          # 메타인지 향상 방법을 표시할 레이블 생성 및 배치
         improvement_tips_title_label = tk.Label(self, text=improvement_tips_title, font=("나눔고딕", 20), justify=tk.LEFT, bg="white")
-        improvement_tips_title_label.place(x=120, y=570)
+        improvement_tips_title_label.place(x=120, y=600)
         improvement_tips_label = tk.Label(self, text=improvement_tips, font=("나눔고딕", 14), justify=tk.LEFT, bg="white")
-        improvement_tips_label.place(x=120, y=620)
+        improvement_tips_label.place(x=120, y=650)
         
        # 여러 항목을 한 줄로 일정 간격을 두고 배치
         tips = ["명상(마인드셋)", "일기쓰기", "자기시험", "일정관리"]
         x_position = 120 + self.recommend_label.winfo_reqwidth() + 10  # "추천활동:" 레이블 너비에 10픽셀 간격 추가
         for tip in tips:
             tip_label = tk.Label(self, text=tip, font=("나눔고딕", 14), bg="white")
-            tip_label.place(x=x_position, y=660)
+            tip_label.place(x=x_position, y=690)
             x_position += tip_label.winfo_reqwidth() + 20  # 현재 레이블의 너비에 20픽셀 간격 추가
             
     def exit(self):
