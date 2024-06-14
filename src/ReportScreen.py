@@ -60,15 +60,15 @@ class ReportScreen(BaseImage):
 
         # 결과 내용을 표시할 레이블 생성 및 배치
         self.result_label = tk.Label(self, text=result_onelevel_text, font=("나눔고딕", 30), bg="white")
-        self.result_label.place(x=220, y=220)
+        self.result_label.place(x=220, y=270)
 
         # 결과 내용 자세하게 표시
         self.detail_label = tk.Label(self, text=result_twolevel_text, font=("나눔고딕", 20), bg="white")
-        self.detail_label.place(x=120, y=350)
+        self.detail_label.place(x=120, y=400)
         
         # result_threelevel_text를 온점 기준으로 분할하여 여러 라벨로 출력
         sentences = result_threelevel_text.split(". ")
-        y_position = 400
+        y_position = 450
         for sentence in sentences:
             sentence = sentence.strip()  # 문자열 양쪽 공백 제거
             if sentence:  # 빈 문자열이 아니면 라벨 생성
@@ -92,21 +92,21 @@ class ReportScreen(BaseImage):
         improvement_tips_title = "메타인지 향상 방법"
         improvement_tips = "자신의 사고 과정을 지속적으로 점검하고, 학습 목표 설정 후 주기적으로 성취도를 평가해야합니다"
         self.recommend_label = tk.Label(self, text="추천활동:", font=("나눔고딕", 14), bg="white")
-        self.recommend_label.place(x=120, y=660)
+        self.recommend_label.place(x=120, y=690)
 
         
          # 메타인지 향상 방법을 표시할 레이블 생성 및 배치
         improvement_tips_title_label = tk.Label(self, text=improvement_tips_title, font=("나눔고딕", 20), justify=tk.LEFT, bg="white")
-        improvement_tips_title_label.place(x=120, y=570)
+        improvement_tips_title_label.place(x=120, y=600)
         improvement_tips_label = tk.Label(self, text=improvement_tips, font=("나눔고딕", 14), justify=tk.LEFT, bg="white")
-        improvement_tips_label.place(x=120, y=620)
+        improvement_tips_label.place(x=120, y=650)
         
        # 여러 항목을 한 줄로 일정 간격을 두고 배치
         tips = ["명상(마인드셋)", "일기쓰기", "자기시험", "일정관리"]
         x_position = 120 + self.recommend_label.winfo_reqwidth() + 10  # "추천활동:" 레이블 너비에 10픽셀 간격 추가
         for tip in tips:
             tip_label = tk.Label(self, text=tip, font=("나눔고딕", 14), bg="white")
-            tip_label.place(x=x_position, y=660)
+            tip_label.place(x=x_position, y=690)
             x_position += tip_label.winfo_reqwidth() + 20  # 현재 레이블의 너비에 20픽셀 간격 추가
             
     def exit(self):
