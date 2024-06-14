@@ -109,7 +109,7 @@ class ReportScreen(BaseImage):
             x_position += tip_label.winfo_reqwidth() + 20  # 현재 레이블의 너비에 20픽셀 간격 추가
             
     def exit(self):
-        self.controller.destroy()
+        self.controller.exit()
 
     def draw_graph(self):
         # 한글 폰트 설정
@@ -117,8 +117,6 @@ class ReportScreen(BaseImage):
         font_prop = fm.FontProperties(fname=font_path)
 
         categories = ['입력 개수', '맞춘 개수', '예상 개수', '총 단어 개수']
-        print(self.controller.user.matching_word_counts)
-        print(self.controller.user.estimated_number)
         values = [len(self.controller.user.input_words), self.controller.user.matching_word_counts, self.controller.user.estimated_number, 20]  # 예시 값
 
         y = np.arange(len(categories))
@@ -138,6 +136,6 @@ class ReportScreen(BaseImage):
         canvas.draw()
         canvas.get_tk_widget().grid(row=0, column=2, rowspan=3, sticky='ne', padx=10, pady=10)
 
-    def set_user_info(self):
+    def display_user_info(self):
         user = self.controller.user
         self.user_info_label.config(text=f"이름: {user.name}, 성별: {user.gender}, 나이: {user.age}")
